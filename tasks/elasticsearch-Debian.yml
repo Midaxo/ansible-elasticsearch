@@ -5,6 +5,11 @@
 - set_fact: force_install=yes
   when: es_allow_downgrades
 
+- name: Install jmespath
+  apt:
+    name: "jmespath"
+    state: present
+
 - name: Debian - Install apt-transport-https to support https APT downloads
   become: yes
   apt: name=apt-transport-https state=present
